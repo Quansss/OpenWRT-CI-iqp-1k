@@ -1,0 +1,82 @@
+#### 基础平台 ####
+CONFIG_TARGET_qualcommax=y
+CONFIG_TARGET_qualcommax_ipq60xx=y
+CONFIG_TARGET_qualcommax_ipq60xx_32=y
+CONFIG_TARGET_DEVICE_qualcommax_ipq60xx_DEVICE_zn_m2=y
+
+#### 内核优化：强制32位，开启尺寸优化 ####
+CONFIG_ARCH_ARM=y
+CONFIG_CPU_TYPE_ARM_CORTEX_A7=y
+CONFIG_CC_OPTIMIZE_FOR_SIZE=y
+CONFIG_KERNEL_CC_OPTIMIZE_FOR_SIZE=y
+
+#### 禁用 IPv6 ####
+CONFIG_IPV6=n
+
+#### 只保留三个想要的 LuCI 应用 ####
+CONFIG_PACKAGE_luci-app-passwall2=y
+CONFIG_PACKAGE_luci-i18n-passwall2-zh-cn=y
+CONFIG_PACKAGE_luci-app-ssr-plus=y
+CONFIG_PACKAGE_luci-i18n-ssr-plus-zh-cn=y
+CONFIG_PACKAGE_luci-app-frpc=y
+CONFIG_PACKAGE_luci-i18n-frpc-zh-cn=y
+
+#### 代理核心：xray-core（功能全） ####
+CONFIG_PACKAGE_xray-core=y
+
+#### 透明代理必需依赖 ####
+CONFIG_PACKAGE_dnsmasq-full=y
+CONFIG_PACKAGE_curl=y
+CONFIG_PACKAGE_ca-bundle=y
+CONFIG_PACKAGE_ip-full=y
+CONFIG_PACKAGE_libcap=y
+CONFIG_PACKAGE_coreutils-nohup=y
+CONFIG_PACKAGE_iptables-mod-tproxy=y
+CONFIG_PACKAGE_ipset=y
+CONFIG_PACKAGE_kmod-nft-tproxy=y
+CONFIG_PACKAGE_kmod-nftables=y
+CONFIG_PACKAGE_kmod-nft-socket=y
+CONFIG_PACKAGE_kmod-nft-nat=y
+CONFIG_PACKAGE_kmod-nf-nat=y
+CONFIG_PACKAGE_kmod-nf-reject=y
+CONFIG_PACKAGE_kmod-nf-ipt=y
+CONFIG_PACKAGE_kmod-ipt-nat=y
+
+#### 彻底移除所有无关插件 ####
+CONFIG_PACKAGE_luci-app-aurora-config=n
+CONFIG_PACKAGE_luci-app-autoreboot=n
+CONFIG_PACKAGE_luci-app-gecoosac=n
+CONFIG_PACKAGE_luci-app-homeproxy=n
+CONFIG_PACKAGE_luci-app-mini-diskmanager=n
+CONFIG_PACKAGE_luci-app-package-manager=n
+CONFIG_PACKAGE_luci-app-partexp=n
+CONFIG_PACKAGE_luci-app-samba4=n
+CONFIG_PACKAGE_luci-app-upnp=n
+CONFIG_PACKAGE_luci-app-wolplus=n
+CONFIG_PACKAGE_luci-theme-aurora=n
+
+#### 彻底禁用 USB 所有驱动 ####
+CONFIG_PACKAGE_kmod-usb-core=n
+CONFIG_PACKAGE_kmod-usb3=n
+CONFIG_PACKAGE_kmod-usb-dwc3=n
+CONFIG_PACKAGE_kmod-usb-dwc3-qcom=n
+CONFIG_PACKAGE_kmod-usb-ohci=n
+CONFIG_PACKAGE_kmod-usb2=n
+CONFIG_PACKAGE_kmod-usb-storage=n
+CONFIG_PACKAGE_kmod-usb-audio=n
+CONFIG_PACKAGE_kmod-usb-hid=n
+CONFIG_PACKAGE_usbutils=n
+CONFIG_PACKAGE_block-mount=n
+CONFIG_PACKAGE_blockd=n
+
+#### 禁用音频、NVMe、多余文件系统 ####
+CONFIG_PACKAGE_kmod-sound-core=n
+CONFIG_PACKAGE_kmod-nvme=n
+CONFIG_PACKAGE_kmod-fs-btrfs=n
+CONFIG_PACKAGE_kmod-fs-f2fs=n
+CONFIG_PACKAGE_kmod-fs-vfat=n
+
+#### 禁用 Bash 和其他多余工具 ####
+CONFIG_PACKAGE_bash=n
+CONFIG_PACKAGE_wget-ssl=n
+CONFIG_PACKAGE_luci-lib-ipkg=n
