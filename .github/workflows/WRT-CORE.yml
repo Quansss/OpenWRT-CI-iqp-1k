@@ -153,6 +153,7 @@ jobs:
           cd ./wrt/
 
           ./scripts/feeds update -a
+          rm -f ./feeds/nss_packages/qca-nss-ecm/patches/12-ecm-conditionally-check-mlo-device.patch
           ./scripts/feeds install -a
 
       - name: Custom Packages
